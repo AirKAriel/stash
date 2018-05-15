@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="qdQ-Me-y2x">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Home-->
+        <scene sceneID="xck-9V-IPy">
+            <objects>
+                <navigationController storyboardIdentifier="homeNavigationController" title="Home" automaticallyAdjustsScrollViewInsets="NO" id="qdQ-Me-y2x" customClass="StyledNavigationController" customModule="ClientCore" customModuleProvider="target" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" translucent="NO" id="o6Q-Aq-C3k">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="XrH-ps-EW8" kind="relationship" relationship="rootViewController" id="gpc-SO-gBZ"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Shh-JR-FML" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1377" y="336"/>
+        </scene>
+        <!--Delegate-->
+        <scene sceneID="kIe-X7-uuS">
+            <objects>
+                <viewController storyboardIdentifier="homeViewController" title="Home" id="XrH-ps-EW8" customClass="HomeViewController" customModule="ClientCore" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="qbq-RF-vYX">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="200" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="3js-0I-TTb">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <view key="tableFooterView" contentMode="scaleToFill" id="JRU-yx-9Xu">
+                                    <rect key="frame" x="0.0" y="116" width="375" height="1"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </view>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="homeBannerCell" id="rR3-bS-Ilm" customClass="HomeBannerCell" customModule="ClientCore" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="rR3-bS-Ilm" id="glT-Z7-G6j">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <view clipsSubviews="YES" contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="mLu-mz-d7S" customClass="GDKBannerView">
+                                                    <rect key="frame" x="0.0" y="-10" width="375" height="64"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <connections>
+                                                        <outlet property="delegate" destination="XrH-ps-EW8" id="RLh-Si-TNL"/>
+                                                    </connections>
+                                                </view>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="mLu-mz-d7S" secondAttribute="trailing" id="0us-rl-a4Q"/>
+                                                <constraint firstItem="mLu-mz-d7S" firstAttribute="leading" secondItem="glT-Z7-G6j" secondAttribute="leading" id="e7h-mG-obV"/>
+                                                <constraint firstAttribute="bottom" secondItem="mLu-mz-d7S" secondAttribute="bottom" constant="-10" id="ffZ-y7-81u"/>
+                                                <constraint firstItem="mLu-mz-d7S" firstAttribute="top" secondItem="glT-Z7-G6j" secondAttribute="top" constant="-10" id="iSf-h6-NVg"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <accessibility key="accessibilityConfiguration" identifier="homeBanner">
+                                            <accessibilityTraits key="traits" button="YES" image="YES"/>
+                                            <bool key="isElement" value="YES"/>
+                                        </accessibility>
+                                        <connections>
+                                            <outlet property="bannerView" destination="mLu-mz-d7S" id="xy0-He-y7v"/>
+                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="homeCarouselBannerCell" id="eX3-UJ-ems" customClass="HomeCarouselBannerCell" customModule="ClientCore" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="72" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="eX3-UJ-ems" id="Qb8-QL-YJF">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <view clipsSubviews="YES" contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="ELo-mU-RCV" customClass="CarouselView" customModule="ClientCore" customModuleProvider="target">
+                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </view>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="ELo-mU-RCV" secondAttribute="trailing" id="3UI-hz-PiO"/>
+                                                <constraint firstAttribute="bottom" secondItem="ELo-mU-RCV" secondAttribute="bottom" id="7Yo-zM-ThC"/>
+                                                <constraint firstItem="ELo-mU-RCV" firstAttribute="top" secondItem="Qb8-QL-YJF" secondAttribute="top" id="aFT-1X-oTA"/>
+                                                <constraint firstItem="ELo-mU-RCV" firstAttribute="leading" secondItem="Qb8-QL-YJF" secondAttribute="leading" id="yik-gZ-Mu9"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <accessibility key="accessibilityConfiguration" identifier="homeCarousel">
+                                            <accessibilityTraits key="traits" button="YES" image="YES"/>
+                                            <bool key="isElement" value="YES"/>
+                                        </accessibility>
+                                        <connections>
+                                            <outlet property="carouselView" destination="ELo-mU-RCV" id="lzI-DE-7b2"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="3js-0I-TTb" firstAttribute="width" secondItem="qbq-RF-vYX" secondAttribute="width" id="6xS-3s-r0U"/>
+                            <constraint firstItem="3js-0I-TTb" firstAttribute="centerY" secondItem="qbq-RF-vYX" secondAttribute="centerY" id="Afc-VF-Jew"/>
+                            <constraint firstItem="3js-0I-TTb" firstAttribute="centerX" secondItem="qZ8-I1-qtd" secondAttribute="centerX" id="UAU-Hy-3SI"/>
+                            <constraint firstItem="3js-0I-TTb" firstAttribute="height" secondItem="qbq-RF-vYX" secondAttribute="height" id="ckK-Ly-7lG"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="qZ8-I1-qtd"/>
+                    </view>
+                    <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
+                    <navigationItem key="navigationItem" title="Home" id="NXq-NI-Q7m">
+                        <barButtonItem key="backBarButtonItem" title=" " id="WFY-uW-io3"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="tableView" destination="3js-0I-TTb" id="UJ4-9F-CqW"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qqc-gy-mW0" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2103.1999999999998" y="335.5322338830585"/>
+        </scene>
+    </scenes>
+</document>
